@@ -1,0 +1,21 @@
+type Course = {
+	uuid: string;
+	thumbnailUrl: string;
+	name: string;
+	description: string;
+	price: number;
+	currency: string;
+	enrolled?: boolean;
+	type: "FREE" | "PAID";
+	duration: string;
+	noOfLessons: number;
+	language: string;
+	difficulty: "EASY" | "MEDIUM" | "HARD";
+	publicationStatus?: "PUBLISHED" | "UNPUBLISHED";
+	idealFor?: "EVERYONE" | "GUARDIAN" | "CHILD" | "EMPLOYEE";
+	signatoryName?: string;
+	signatoryTitle?: string;
+	signatureUrl?: string;
+	status?: "COMPLETED" | "IN_PROGRESS" | "READY";
+	lessons?: Lesson[];
+};
