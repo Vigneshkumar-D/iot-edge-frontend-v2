@@ -111,6 +111,16 @@ import {
 } from "./table"; // adjust import path as needed
 import { Button } from "./components/ui/button";
 import { ListRestart } from "lucide-react";
+import { Card, CardContent, CardHeader } from "./components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
+import { CalendarDays, Edit, Eye, Mail, MoreHorizontal, UserRound } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "./components/ui/dropdown-menu";
+
+import ViewDialog from "./app/profile/profile-view";
+import KidCard from "./app/profile/profile-card";
+
+
+
 
 const courses = [
   {
@@ -176,53 +186,85 @@ const courses = [
     difficulty: "EASY",
     type: "FREE",
     language: "ENGLISH",
-  },
-  {
-    name: "React Beginners Guide",
-    lessons: 1,
-    duration: "50 mins",
-    difficulty: "EASY",
-    type: "FREE",
-    language: "ENGLISH",
-  },
-  {
-    name: "React Advance Guide",
-    lessons: 2,
-    duration: "30 mins",
-    difficulty: "EASY",
-    type: "FREE",
-    language: "ENGLISH",
-  },
-  {
-    name: "React Intermediate Guide",
-    lessons: 1,
-    duration: "0 mins",
-    difficulty: "EASY",
-    type: "FREE",
-    language: "ENGLISH",
-  },
-  {
-    name: "React Beginners Guide",
-    lessons: 1,
-    duration: "50 mins",
-    difficulty: "EASY",
-    type: "FREE",
-    language: "ENGLISH",
-  },
+  }
+
 ];
+
+const kid = {
+  title: "Mr.",
+  firstName: "Aryan",
+  middleName: "Raj",
+  lastName: "Singh",
+  gender: "Male",
+  dateOfBirth: "2012-08-15",
+  email: "aryan.singh@example.com",
+  title: "Master",
+  firstName: "Aryan",
+  middleName: "Raj",
+  lastName: "Singh",
+  dateOfBirth: "2012-08-15",
+  user: {
+    avatarUrl: "https://randomuser.me/api/portraits/men/75.jpg",
+    email: "aryan.singh@example.com",
+  },
+  languages: ["English", "Hindi"],
+  ethnicity: "Asian",
+  nationality: "Indian",
+  avatarUrl: "https://randomuser.me/api/portraits/men/75.jpg",
+  guardians: [
+    {
+      uuid: "guardian-uuid-123",
+      title:"Mr.",
+      firstName:"Alex",
+      lastName:"",
+      relationship: "Father",
+      guardianType: "PRIMARY",
+      user: {
+        avatarUrl: "https://randomuser.me/api/portraits/men/75.jpg",
+        email: "aryan.singh@example.com",
+      },
+    },
+    {
+      uuid: "guardian-uuid-456",
+      title:"Mr.",
+      firstName:"Alex",
+      lastName:"",
+      relationship: "Mother",
+      guardianType: "SECONDARY",
+      user: {
+        avatarUrl: "https://randomuser.me/api/portraits/men/75.jpg",
+        email: "aryan.singh@example.com",
+      },
+    },
+  ],
+  organizations: [
+    {
+      uuid: "org-uuid-001",
+      name:"Oxford University",
+      identificationNo: "IDN123456",
+      isDefault: true,
+      logoUrl: "https://randomuser.me/api/portraits/men/75.jpg",
+    },
+    {
+      uuid: "org-uuid-002",
+      name:"Hogwarts School",
+      identificationNo: "IDN654321",
+      isDefault: false,
+      logoUrl: "https://randomuser.me/api/portraits/men/75.jpg",
+    },
+  ],
+};
+
+  
 
 export default function CourseTable() {
   return (
-    <div className="p-6">
-    
-      <Button variant="destructive">Hit</Button>
-      <Button className="max-w-fit"  type="button"  size="lg" variant="warning">
-						<ListRestart size={16} />
-						Reset
-					</Button>
-      {/* Header Controls */}
+    <div style={{display:"flex", flexDirection:"column"}} className="p-6">
+      <div style={{width:"350px", alignSelf:"center", margin:"20px"}}>
+          <KidCard  kid={kid}/>
+      </div>
       <div className="flex justify-between items-center mb-4">
-        <div className="flex gap-2">
+        <div className="flex gap-10" >
           <input
             type="text"
             placeholder="Search Course"
@@ -234,7 +276,6 @@ export default function CourseTable() {
         <button className="px-4 py-2 bg-black text-white rounded-lg">+ New</button>
       </div>
 
-      {/* Table */}
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
         <Table>
           <TableHeader>
@@ -280,8 +321,6 @@ export default function CourseTable() {
             ))}
           </TableBody>
         </Table>
-
-        {/* Pagination Controls */}
         <div className="p-4 flex justify-between text-gray-600 text-sm">
           <span>Page 1 of 1</span>
           <div className="flex gap-2">
