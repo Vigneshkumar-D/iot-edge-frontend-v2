@@ -4,6 +4,7 @@ import {
   LOGOUT_URL,
   CURRENT_USER_URL,
   getAuthHeader,
+  FORGET_PASSWORD_URL,
 } from "./constService";
 
 export const postLogin = (data) => {
@@ -16,4 +17,8 @@ export const logout = (data) => {
 
 export const getCurrentUser = () => {
   return axios.get(CURRENT_USER_URL, getAuthHeader());
+};
+
+export const postForgetPassword = (data) => {
+  return axios.post(FORGET_PASSWORD_URL, data);
 };
