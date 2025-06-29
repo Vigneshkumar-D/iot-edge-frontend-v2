@@ -28,9 +28,10 @@ module.exports = {
         border: "#d1d5db",
 
         ring: "#c7d2fe",
+
       },
       stroke:{
-        secondary: "blue"
+        secondary: "vilot"
       },
       border:{
         secondary:"blue"
