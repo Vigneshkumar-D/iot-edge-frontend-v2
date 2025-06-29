@@ -16,7 +16,7 @@ import {
 import { LockOutlined, SyncOutlined, UserOutlined } from "@ant-design/icons";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { postLogin } from "../basicService/authService";
+import { postLogin } from "../service/authService";
 import { LockKeyhole, LogIn, Mail } from "lucide-react";
 
 const { useToken } = theme;

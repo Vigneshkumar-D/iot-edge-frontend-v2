@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Content, Header } from "antd/es/layout/layout";
 // import ControlePanel from "../module/ControlePanel/Component/controlePanel";
 import Cookies from "js-cookie";
-import { getCurrentUser, logout } from "../basicService/authService";
+import { getCurrentUser, logout } from "../service/authService";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa";
 // import Configuration from "../module/configuraion/index.js";
