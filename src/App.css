@@ -41,3 +41,36 @@
 .ant-input-outlined {
   border-radius: 10px;
 }
+
+/* primary button */
+.custom-ant-btn {
+  background-color: #1677ff;
+  border: 1px solid #1677ff;
+  color: #fff;
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
+.custom-ant-btn:hover,
+.custom-ant-btn:focus {
+  background-color: #4096ff;
+  border-color: #4096ff;
+  color: #fff;
+}
+
+.custom-ant-btn:active {
+  background-color: #0958d9;
+  border-color: #0958d9;
+  color: #fff;
+}
+
+.custom-submit-button {
+  background-color: black ;
+  color: white;
+  border-radius: 10px;
+  height: 37px;
+}

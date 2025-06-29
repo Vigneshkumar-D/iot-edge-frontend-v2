@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   Button,
   Col,
+  Flex,
   Form,
   Grid,
   Input,
@@ -16,7 +17,7 @@ import { LockOutlined, SyncOutlined, UserOutlined } from "@ant-design/icons";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { postLogin } from "../basicService/authService";
-import { Mail } from "lucide-react";
+import { LockKeyhole, LogIn, Mail } from "lucide-react";
 
 const { useToken } = theme;
 const { useBreakpoint } = Grid;
@@ -65,9 +66,9 @@ export default function Login() {
       width: "100%",
     },
     forgotPassword: {
-      paddingTop: "10px",
       float: "right",
-      color: "white",
+      color: "#1677ff",
+      padding: "5px 0px 20px",
     },
     header: {
       marginBottom: token.marginXL,
@@ -118,16 +119,34 @@ export default function Login() {
           justifyContent: "center",
         }}
       >
-        <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
-          <div style={{ textAlign: "center", paddingBottom: "1rem" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <div
+            style={{
+              paddingBottom: "2rem",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <img
               src={`${process.env.PUBLIC_URL}/companylogo.png`}
               alt="Logo"
-              style={{ width: "70%", height: "auto", borderRadius: "10px" }}
+              style={{ width: "30%", height: "auto", borderRadius: "10px" }}
             />
           </div>
-          <div style={{fontSize:"22px",fontWeight:700,textAlign:"center"}}>Welcome Back</div>
-          <div style={{textAlign:"center"}}>Enter your Email & Password to login</div>
+          <div
+            style={{ fontSize: "22px", fontWeight: 700, textAlign: "center" }}
+          >
+            Welcome Back
+          </div>
+          <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+            Enter your Email & Password to login
+          </div>
           <Form
             name="normal_login"
             initialValues={{
@@ -135,16 +154,11 @@ export default function Login() {
             }}
             onFinish={onFinish}
             layout="vertical"
-            requiredMark="optional"
-            style={{width:"300px"}}
+            style={{ width: "300px" }}
           >
             <Form.Item
               name="username"
-              label={
-                <span style={{ color: "white", fontWeight: "700" }}>
-                  USERNAME
-                </span>
-              }
+              label="Email"
               rules={[
                 {
                   required: true,
@@ -155,17 +169,14 @@ export default function Login() {
               <Input
                 style={{ padding: "8px 12px" }}
                 // prefix={<UserOutlined />}
-                prefix={<Mail size={14}/>}
+                prefix={<Mail size={14} />}
                 placeholder="Enter"
               />
             </Form.Item>
             <Form.Item
               name="password"
-              label={
-                <div style={{ color: "white", fontWeight: "700" }}>
-                  PASSWORD
-                </div>
-              }
+              label="Password"
+              style={{ marginBottom: "0px" }}
               rules={[
                 {
                   required: true,
@@ -174,25 +185,25 @@ export default function Login() {
               ]}
             >
               <Input.Password
-                prefix={<LockOutlined />}
+                prefix={<LockKeyhole size={14} />}
                 type="password"
                 placeholder="Enter"
                 style={{ padding: "8px 12px" }}
               />
             </Form.Item>
-            <Form.Item style={{ marginBottom: "0px" }}>
+            <Flex justify="end">
+              <Link to="/forget-password" style={styles.forgotPassword}>
+                Forgot password?
+              </Link>
+            </Flex>
+            <Form.Item style={{ marginBottom: "0px", textAlign: "center" }}>
               <Button
                 block="true"
                 // type="primary"
                 htmlType="submit"
-                className="px-4 py-2 border rounded-lg"
-                // style={{
-                //   padding: "20px 12px",
-                //   backgroundColor: isLoading ? "#1677ff" : "blue",
-                //   borderColor: isLoading ? "#1677ff" : undefined,
-                //   cursor: isLoading ? "not-allowed" : undefined,
-                // }}
+                className="custom-submit-button"
                 disabled={isLoading}
+                style={{ width: "7rem" }}
                 icon={
                   <Spin
                     spinning={isLoading}
@@ -202,12 +213,9 @@ export default function Login() {
                   />
                 }
               >
-                {!isLoading ? "Log in" : ""}
+                {!isLoading ? "Log in" : ""} <LogIn size={14} />
               </Button>
             </Form.Item>
-            <Link to="/forget-password" style={styles.forgotPassword}>
-              Forgot password?
-            </Link>
           </Form>
         </div>
       </Col>
