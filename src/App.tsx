@@ -10,13 +10,14 @@ import ForgetPassword from './components/basicComponents/components/forgetPasswo
 import Login from './components/basicComponents/components/login';
 import ResetPassword from './components/basicComponents/components/ressetPassword';
 import PageNotFound from './components/basicComponents/components/pageNotFound';
+import Configuration from './app/configuraion';
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />}>
         <Route path="" element={<CourseTable />}/>
-          {/* <Route path="configuration/*" element={<Configuration/>}/> */}
+          <Route path="configuration/*" element={<Configuration/>}/>
           {/* <Route path="energy-module/*" element={<EnergyDashboardIndex/>}/> */}
         </Route>
         <Route path="/forget-password" element={<ForgetPassword />} />

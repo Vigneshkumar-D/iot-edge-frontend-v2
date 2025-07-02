@@ -202,8 +202,8 @@ export default function Login() {
                 // type="primary"
                 htmlType="submit"
                 className="custom-submit-button"
-                disabled={isLoading}
                 style={{ width: "7rem" }}
+                disabled={isLoading}
                 icon={
                   <Spin
                     spinning={isLoading}

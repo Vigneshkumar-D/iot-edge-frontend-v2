@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 import { getCurrentUser, logout } from "../service/authService";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa";
+import Configuration from "../../../app/configuraion";
 // import Configuration from "../module/configuraion/index.js";
 // import EnergyDashboardIndex from "../module/EnergyModule/index.js";
 
@@ -231,16 +232,16 @@ const Homepage = () => {
     setCurrent(e.key);
   };
 
-  // const router = useRoutes([
-  //   { index: true, element: <AssetDashboard /> },
-  //   { element: <Configuration />, path: "configuration/*" },
-  //   {
-  //     element: <ControlePanel />,
-  //     path: "controle-panel/*",
-  //   },
-  //   { element: <Energy />, path: "energy" },
-  //   { element: <EnergyDashboardIndex />, path: "energy-module/*" },
-  // ]);
+  const router = useRoutes([
+    // { index: true, element: <AssetDashboard /> },
+    { element: <Configuration />, path: "configuration/*" },
+    // {
+    //   element: <ControlePanel />,
+    //   path: "controle-panel/*",
+    // },
+    // { element: <Energy />, path: "energy" },
+    // { element: <EnergyDashboardIndex />, path: "energy-module/*" },
+  ]);
 
   const handleLogout = async () => {
     console.log("hit");
@@ -401,8 +402,8 @@ const Homepage = () => {
           </Dropdown>
         </Header>
 
-        {/* <Content style={{ margin: "1rem", overflow: "auto" }}>{router}</Content> */}
-        <Content style={{ margin: "1rem", overflow: "auto" }}>router</Content>
+        <Content style={{ margin: "1rem", overflow: "auto" }}>{router}</Content>
+        {/* <Content style={{ margin: "1rem", overflow: "auto" }}>router</Content> */}
       </Layout>
     </Layout>
   ) : (

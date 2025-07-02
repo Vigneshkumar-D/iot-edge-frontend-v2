@@ -4,7 +4,11 @@ import ViewDialog from "./profile-view";
 import { format, parse } from "date-fns";
 // import UpsertDialog from "./profile-update";
 import { Button } from "../../components/ui/button";
-import { Card, CardContent, CardHeader } from "../../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+} from "../../components/ui/card";
 import {
   Avatar,
   AvatarFallback,
@@ -29,7 +33,7 @@ type KidCardProps = {
   kid: Kid;
 };
 
-const KidCard = ({ kid }: KidCardProps) => {
+const ProfileCard = ({ kid }: KidCardProps) => {
   const [openViewDialog, setOpenViewDialog] = useState<boolean>(false);
   const [openUpdateDialog, setOpenUpdateDialog] = useState<boolean>(false);
 
@@ -122,4 +126,4 @@ const KidCard = ({ kid }: KidCardProps) => {
   );
 };
 
-export default KidCard;
+export default ProfileCard;
