@@ -217,7 +217,7 @@ const LocationForm = ({ editData, saveData, locationData }) => {
       </Card>
 
       <Flex justify="end" style={{ marginTop: 20 }}>
-        <Button type="primary" htmlType="submit">
+        <Button htmlType="submit" className="custom-ant-btn">
           {editData ? "Update" : "Add"} Location
         </Button>
       </Flex>

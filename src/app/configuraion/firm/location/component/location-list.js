@@ -266,8 +266,8 @@ const Location = () => {
     <div style={{ width: "100%", height: "70vh" }}>
       <Flex justify="space-between" align="center" style={{ marginBottom: 16 }}>
         <div style={{ fontSize: "1rem", fontWeight: 700 }}>Location</div>
-        <Button onClick={() => setIsModalOpen(true)} type="primary">
-          Add
+        <Button onClick={() => setIsModalOpen(true)} className="custom-ant-btn">
+          New location
         </Button>
       </Flex>
       <ReactFlow

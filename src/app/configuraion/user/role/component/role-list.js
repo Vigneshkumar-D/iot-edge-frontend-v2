@@ -9,30 +9,6 @@ import {
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import RoleForm from "./role-form";
 
-function buildTree(data) {
-  const nodeMap = {};
-  const tree = [];
-
-  // Step 1: Add all nodes to a map
-  data.forEach((item) => {
-    nodeMap[item.id] = { ...item, key: item.id, children: [] };
-  });
-
-  // Step 2: Link children to their parent
-  data.forEach((item) => {
-    if (item.parent && item.parent.id) {
-      const parentNode = nodeMap[item.parent.id];
-      if (parentNode) {
-        parentNode.children.push(nodeMap[item.id]);
-      }
-    } else {
-      tree.push(nodeMap[item.id]); // root node
-    }
-  });
-
-  return tree;
-}
-
 const Role = () => {
   const [roleData, setRoleData] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -133,13 +109,14 @@ const Role = () => {
       title: "",
       dataIndex: "id",
       key: "id",
-      align: "right",
+      align: "center",
+      width:"100px",
       render: (value, record, index) => {
         return (
           value === 1 ||
           value === 2 ||
           value === 3 || (
-            <>
+            <Flex justify="space-around">
               <Tooltip title="Edit">
                 <EditOutlined
                   className="tableActionButton"
@@ -157,7 +134,7 @@ const Role = () => {
                   }}
                 />
               </Tooltip>
-            </>
+            </Flex>
           )
         );
       },
@@ -168,7 +145,7 @@ const Role = () => {
     <div>
       <Flex justify="space-between" align="center">
         <div style={{ fontSize: "1rem", fontWeight: 700 }}>Role</div>
-        <Button onClick={() => setIsModalOpen(true)} type="primary">
+        <Button onClick={() => setIsModalOpen(true)} className="custom-ant-btn">
           Add
         </Button>
       </Flex>
